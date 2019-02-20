@@ -11,11 +11,12 @@ servers:
     description: Optional server description, e.g. Internal staging server for testing
 
 paths:
+
   /contacts/{contactId}:
     get:
       tags:
         - "Contacts"
-      summary: Returns a user by ID.
+      summary: Returns a contact by contactId.
       parameters:
         - name: contactId
           in: path
@@ -32,11 +33,12 @@ paths:
                 $ref: '#/components/schemas/Contact'
         default:
           $ref: '#/components/responses/Error'
+
   /contacts/findByEmail/{email}:
     get:
       tags:
         - "Contacts"
-      summary: Returns a user by email address (primary username).
+      summary: Returns a contact by email address (primary username).
       parameters:
         - name: email
           in: path
@@ -53,11 +55,12 @@ paths:
                 $ref: '#/components/schemas/Contact'
         default:
           $ref: '#/components/responses/Error'
+
   /contacts:
     post:
       tags:
         - "Contacts"
-      summary: Creates a contact.
+      summary: Creates a new contact.
       requestBody:
         required: true
         content:
@@ -73,11 +76,32 @@ paths:
                 $ref: '#/components/schemas/Contact'
         default:
           $ref: '#/components/responses/Error'
+
+    patch:
+      tags:
+        - "Contacts"
+      summary: Updates an existing contact.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/Contact'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+        default:
+          $ref: '#/components/responses/Error'
+
   /courses{courseId}:
     get:
       tags:
         - "Courses"
-      summary: Gets a course
+      summary: Gets a course by courseId
       parameters:
         - name: courseId
           in: path
@@ -96,11 +120,12 @@ paths:
                   $ref: '#/components/schemas/Course'
         default:
           $ref: '#/components/responses/Error'
+
   /classes{classId}:
     get:
       tags:
         - "Classes"
-      summary: Gets a class
+      summary: Gets a class by classId
       parameters:
         - name: classId
           in: path
@@ -119,6 +144,7 @@ paths:
                   $ref: '#/components/schemas/Class'
         default:
           $ref: '#/components/responses/Error'
+
   /classes/findByCourse/{courseId}:
     get:
       tags:
@@ -142,11 +168,12 @@ paths:
                   $ref: '#/components/schemas/Class'
         default:
           $ref: '#/components/responses/Error'
+
   /certificates{certificateId}:
     get:
       tags:
         - "Certificates"
-      summary: Gets a certificate
+      summary: Gets a certificate by certificateId
       parameters:
         - name: certificateId
           in: path
@@ -165,11 +192,12 @@ paths:
                   $ref: '#/components/schemas/Certificate'
         default:
           $ref: '#/components/responses/Error'
+
   /discounts/{discountCode}:
     get:
       tags:
         - "Discounts"
-      summary: Gets a discount
+      summary: Gets a discount by discount code (as entered by user)
       parameters:
         - name: discountCode
           in: path
@@ -218,6 +246,7 @@ paths:
                   $ref: '#/components/schemas/ClassDiscountEligiblity'
         default:
           $ref: '#/components/responses/Error'
+
   /registrations:
     post:
       tags:
@@ -239,10 +268,12 @@ paths:
                 $ref: '#/components/schemas/Registration'
         default:
           $ref: '#/components/responses/Error'
-    
+
 
 components:
+
   responses:
+
     Error:
       description: unexpected error
       content:
@@ -251,10 +282,12 @@ components:
             $ref: '#/components/schemas/Error'
 
   schemas:
+
     SalesforceId:
       type: string
       pattern: '^\w{18}|\w{15}$'
       example: '0050P000007S45x'
+
     Contact:
       allOf:
         - $ref: '#/components/schemas/NewContact'
@@ -263,6 +296,7 @@ components:
           properties:
             id:
               $ref: '#/components/schemas/SalesforceId'
+
     NewContact:
       required:
         - email
@@ -270,12 +304,85 @@ components:
         email:
           type: string
           format: email
+        prefix:
+          type: string
+          enum:
+            - Mr.
+            - Mrs.
+            - Ms.
+          example: 'Ms.'
         firstName:
           type: string
-          example: 'Jane'
+          example: 'Hedy'
+        middleName:
+          type: string
+          example: 'Eva Maria'
         lastName:
           type: string
-          example: 'Doe'
+          example: 'Lamarr'
+        suffix:
+          type: string
+        homeAddress:
+          $ref: '#/components/schemas/Address'
+        organizationAddress:
+          $ref: '#/components/schemas/Address'
+        phone:
+          $ref: '#/components/schemas/PhoneNumber'
+        eveningPhone:
+          $ref: '#/components/schemas/PhoneNumber'
+        fax:
+          $ref: '#/components/schemas/PhoneNumber'
+        organizationName:
+          type: string
+          example: 'MGM'
+        organizationEmployeeCount:
+          type: string
+          enum:
+            - '1 to 99'
+            - '100 to 499'
+            - '500 to 999'
+            - '1000 to 4999'
+            - '5000 to 9999'
+            - '10000 or more'
+        industry:
+          type: string
+          example: 'Propaganda'
+        jobTitle:
+          type: string
+          example: 'inventor'
+        preferedMailAddress:
+          type: string
+          enum:
+            - 'Home'
+            - 'Organization'
+
+    Address:
+      type: object
+      properties:
+        address:
+          type: string
+          example: '5418 Sunset Blvd'
+        address2:
+          type: string
+          example: 'Apt. 2.4 G'
+        city:
+          type: string
+          example: 'Los Angeles'
+        state:
+          type: string
+          example: 'CA'
+        country:
+          type: string
+          example: 'United States'
+        zipCode:
+          type: string
+          example: '90049'
+
+    PhoneNumber:
+      type: string
+      format: phone
+      example: '555-555-5555'
+
     Class:
       allOf:
         - $ref: '#/components/schemas/Course'
@@ -318,6 +425,7 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/Contact'
+
     Course:
       type: object
       required:
@@ -334,6 +442,7 @@ components:
         price:
           type: number
           example: '1495'
+
     Certificate:
       type: object
       required:
@@ -355,12 +464,14 @@ components:
                     enum:
                        - required
                        - elective
+
     Registration:
       type: object
       required:
         - invoiceNumber
         - registrant
         - participants
+        - responsibleForPayment
         - payment
       properties:
         invoiceNumber:
@@ -372,6 +483,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Participant'
+        responsibleForPayment:
+          $ref: '#/components/schemas/Contact'
         discount:
           $ref: '#/components/schemas/Discount'
         payment:
@@ -385,6 +498,7 @@ components:
             authCode: '148243'
             avsCode: 'M'
             cvvCode: 'M'
+
     Participant:
       type: object
       required:
@@ -395,6 +509,7 @@ components:
           $ref: '#/components/schemas/Contact'
         class:
           $ref: '#/components/schemas/Class'
+
     CreditCardPayment:
       type: object
       properties:
@@ -417,6 +532,7 @@ components:
           cvvCode:
             type: string
             example: 'M'
+
     Discount:
       type: object
       required:
@@ -435,6 +551,7 @@ components:
         amount:
           type: number
           example: 15
+
     ClassDiscountEligiblity:
       type: object
       required:
@@ -445,6 +562,7 @@ components:
           $ref: '#/components/schemas/SalesforceId'
         isEligible:
           type: boolean
+
     Error:
       required:
         - code
