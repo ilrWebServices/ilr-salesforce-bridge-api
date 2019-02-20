@@ -292,9 +292,9 @@ components:
       allOf:
         - $ref: '#/components/schemas/NewContact'
         - required:
-          - id
+          - contactId
           properties:
-            id:
+            contactId:
               $ref: '#/components/schemas/SalesforceId'
 
     NewContact:
