@@ -1,0 +1,61 @@
+{
+  "$id": "https://register.ilr.cornell.edu/order_response.schema.json",
+  "$schema": "http://json-schema.org/schema#",
+  "title": "Order Response",
+  "description": "Data returned by Salesforce after a successful order.",
+  "type": "object",
+  "properties": {
+    "pos_order_id": {
+      "type": "string",
+      "description": "The point of sale's unique id for the order."
+    },
+    "sf_product_type": {
+      "type": "string",
+      "description": "Salesforce product type identifier",
+      "example": "Open enrollment program"
+    },
+    "sf_application_id": { "$ref": "#/definitions/sales_force_id" },
+    "sf_payment_id": { "$ref": "#/definitions/sales_force_id" },
+    "sf_contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [ "updated", "inserted" ],
+          },
+          "pos_user_id": {
+            "type": "string",
+            "description": "The point of sale's user id, passed with the original order"
+          },
+          "contact_sfid": { "$ref": "#/definitions/sales_force_id" },
+          "first_name": { "type": "string" },
+          "last_name": { "type": "string" },
+          "company": { "type": "string"},
+          "job_title": { "type": "string"},
+          "phone": { "type": "string" },
+          "participant_in": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "class_id": { "$ref": "#/definitions/sales_force_id" },
+                "participant_id": { "$ref": "#/definitions/sales_force_id" }
+              },
+              "required": ["class_id", "participant_id"]
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["pos_order_id", "sf_product_type", "sf_application_id", "sf_payment_id", "sf_contacts"],
+  "definitions": {
+    "sales_force_id": {
+      "type": "string",
+      "pattern": "^\\w{18}|\\w{15}$",
+      "example": "0050P000007S45x"
+    }
+  }
+}
