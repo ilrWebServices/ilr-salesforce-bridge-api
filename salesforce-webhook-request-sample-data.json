@@ -1,0 +1,93 @@
+{
+  "point_of_sale": "ILR Professional Programs Open Enrollment",
+  "order_id": "142857",
+  "payment": {
+    "payment_type": "freedompay_cc",
+    "payment_id": "38452",
+    "name_on_card": "Jane Doe",
+    "amount": 3391.50,
+    "tansaction_id": "01Z6HB5DMN00P74LV1TO4PTBAC0SFLDW",
+    "authorization_code": "520593",
+    "card_type": "MASTERCARD",
+    "masked_card_number": "51"
+  },
+  "customer": {
+      "user_id": "285714",
+      "contact_sfid": "0020P000005G47x",
+      "email": "ksampler@acme.com",
+      "first_name": "Kim",
+      "last_name": "Sampler",
+      "company": "Acme, Inc.",
+      "job_title": "Director of Training",
+      "phone": "607-255-5555",
+      "additional_fields" : [
+        {
+          "name": "role",
+          "value": "Training facilitator"
+        }
+      ]
+  },
+  "order_total": 3391.50,
+  "items": [
+    {
+      "discount": {
+        "sfid": "a0q0P00000OV8CA",
+        "discount_code": "GOVT/NONPROFIT",
+        "discount_type": "percentage",
+        "amount": "15"
+      },
+      "price": 1995,
+      "discounted_price": 1695.75,
+      "total": 3391.50,
+      "registration": {
+        "description": "For example, a single course with 1+ participants.",
+        "product_type": "Open Enrollment",
+        "course_id": "a0p0P00000C8f3I",
+        "class_id": "a0i0P00000SgpG8",
+        "additional_fields": [],
+        "participants": [
+          {
+            "user_id": "571428",
+            "contact_sfid": "0250F000002Z32x",
+            "email": "rremmington@acme.com",
+            "first_name": "Ralph",
+            "last_name": "Remmington",
+            "company": "Acme, Inc.",
+            "job_title": "HR Analyst",
+            "phone": "607-255-4444",
+            "additional_fields" : [
+              {
+                "name": "dietary_restrictions",
+                "value": "No glutan"
+              },
+              {
+                "name": "ada_accomodation",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "user_id": "714285",
+            "contact_sfid": "0005M000066Q96x",
+            "email": "ljordan@acme.com",
+            "first_name": "Lawanda",
+            "last_name": "Jordan",
+            "company": "Acme, Inc.",
+            "job_title": "Director of Talent Development",
+            "phone": "607-255-4321",
+            "additional_fields" : [
+              {
+                "name": "dietary_restrictions",
+                "value": "none"
+              },
+              {
+                "name": "ada_accomodation",
+                "value": "none"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
