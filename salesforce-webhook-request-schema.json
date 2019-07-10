@@ -1,0 +1,167 @@
+{
+  "$id": "https://register.ilr.cornell.edu/order_request.schema.json",
+  "$schema": "http://json-schema.org/schema#",
+  "title": "Order Request",
+  "description": "Data from a successful order to be sent as a request to a Salesforce web hook for processing.",
+  "type": "object",
+  "properties": {
+    "point_of_sale": {
+      "type": "string",
+      "description": "The storefront from which order was sent.",
+      "example": "ILR Professional Programs Open Enrollment"
+    },
+    "order_id": {
+      "type": "string",
+      "description": "The point of sale's unique id for the order."
+    },
+    "payment": {
+      "oneOf": [
+        { "$ref": "#/definitions/freedompay_payment" }
+      ]
+    },
+    "customer": { "$ref": "#/definitions/person" },
+    "order_total": {
+      "type": "number",
+      "description": "Order total, adjusted after all prices discounted."
+    },
+    "order_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "discount": { "$ref": "#/definitions/discount" },
+          "price": {
+            "type": "number",
+            "description": "The advertised price of the product."
+          },
+          "discounted_price": {
+            "type": "number",
+            "description": "The price with doscount applied."
+          },
+          "total": {
+            "type": "number",
+            "description": "Discounted price X number of participants."
+          },
+          "registration": {
+            "type": "object",
+            "description": "For example, a single course with 1+ participants.",
+            "properties": {
+              "product_type": {
+                "type": "string",
+                "description": "Salesforce product type identifier",
+                "example": "Open enrollment program"
+              },
+              "course_id": { "$ref": "#/definitions/sales_force_id" },
+              "class_id": { "$ref": "#/definitions/sales_force_id" },
+              "additional_fields" : {
+                "type": "array",
+                "items": {"$ref": "#/definitions/additional_field" }
+              },
+              "participants": {
+                "type": "array",
+                "items": { "$ref": "#/definitions/person" }
+              }
+            },
+            "required": ["product_type", "course_id", "class_id", "participants"]
+          }
+        },
+        "required": ["price", "discounted_price", "total", "registration"]
+      }
+    }
+  },
+  "definitions": {
+    "sales_force_id": {
+      "type": "string",
+      "pattern": "^\\w{18}|\\w{15}$",
+      "example": "0050P000007S45x"
+    },
+    "freedompay_payment": {
+      "type": "object",
+      "properties": {
+        "payment_type": {
+          "type": "string",
+          "default": "freedompay_cc"
+        },
+        "payment_id": {
+          "type": "string",
+          "description": "The point of sale's unique id for the payment."
+        },
+        "amount": {
+          "type": "number",
+          "description": "Amount charged to card"
+        },
+        "tansaction_id": {
+          "type": "string",
+          "description": "FreedomPay's transaction id."
+        },
+        "authorization_code": {
+          "type": "string",
+          "description": "AUTH code from card processor."
+        },
+        "card_type": {
+          "type": "string",
+          "description": "Credit card type."
+        },
+        "masked_card_number": {
+          "type": "string",
+          "description": "First two digits of card number."
+        }
+      },
+      "required": ["payment_type", "payment_id", "amount", "tansaction_id"]
+    },
+    "person": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "The point of sale's unique id for the person."
+        },
+        "contact_sfid": {
+          "oneOf": [
+            { "$ref": "#/definitions/sales_force_id" },
+            { "type": "string",
+              "maxLength": 0,
+              "description": "Use a zero-length string for sfid for new inserts."
+            }
+          ]
+        },
+        "email": { "type": "string" },
+        "first_name": { "type": "string" },
+        "last_name": { "type": "string" },
+        "company": { "type": "string" },
+        "job_title": { "type": "string" },
+        "phone": { "type": "string" },
+        "additional_fields" : {
+          "type": "array",
+          "items": {"$ref": "#/definitions/additional_field" }
+        }
+      },
+      "required": ["user_id", "contact_sfid", "email", "first_name", "last_name", "company"]
+    },
+    "discount": {
+      "type": "object",
+      "properties": {
+        "sfid": { "$ref": "#/definitions/sales_force_id" },
+        "discount_code": {
+          "type": "string",
+          "description": "The code as entered by end user."
+        },
+        "discount_type": {
+          "type": "string",
+          "enum": [ "flat_rate", "percentage" ]
+        },
+        "amount": { "type": "number" }
+      },
+      "required": ["sfid", "discount_code", "discount_type", "amount"]
+    },
+    "additional_field": {
+      "type": "object",
+      "description": "Any arbitrary FYI custom field with no processing guarantee from Salesforce processor.",
+      "properties": {
+        "name": { "type": "string" },
+        "value": { "type": "string" }
+      },
+      "required": ["name", "value"]
+    }
+  }
+}
