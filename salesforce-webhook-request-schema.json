@@ -86,6 +86,10 @@
           "type": "string",
           "description": "The point of sale's unique id for the payment."
         },
+        "name_on_card": {
+          "type": "string",
+          "description": "Name of card holder"
+        },
         "amount": {
           "type": "number",
           "description": "Amount charged to card"
