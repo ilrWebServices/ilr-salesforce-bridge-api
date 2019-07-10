@@ -1,0 +1,53 @@
+{
+  "pos_order_id": "142857",
+  "sf_product_type": "Open Enrollment",
+  "sf_application_id": "a0r0P00000HX7fh",
+  "sf_payment_id": "a370P00000bcH7R",
+  "sf_contacts": [
+    {
+      "status": "updated",
+      "pos_user_id": "285714",
+      "contact_sfid": "0020P000005G47x",
+      "first_name": "Kim",
+      "last_name": "Sampler",
+      "company": "Acme, Inc.",
+      "job_title": "Director of Training",
+      "phone": "607-255-5555",
+      "participant_in": []
+    },
+    {
+      "status": "updated",
+      "pos_user_id": "571428",
+      "contact_sfid": "0250F000002Z32x",
+      "first_name": "Ralph",
+      "last_name": "Remmington",
+      "company": "Acme, Inc.",
+      "job_title": "HR Analyst",
+      "phone": "607-255-4444",
+      "participant_in": [
+        {
+          "class_id": "a0i0P00000SgpG8",
+          "participant_id": "d102S00050GEyPL",
+
+        }
+      ]
+    },
+    {
+      "status": "updated",
+      "pos_user_id": "714285",
+      "contact_sfid": "0005M000066Q96x",
+      "first_name": "Lawanda",
+      "last_name": "Jordan",
+      "company": "Acme, Inc.",
+      "job_title": "Director of Talent Development",
+      "phone": "607-255-4321",
+      "participant_in": [
+        {
+          "class_id": "a0i0P00000SgpG8",
+          "participant_id": "0070P00350BVGKj",
+
+        }
+      ]
+    }
+  ]
+}
