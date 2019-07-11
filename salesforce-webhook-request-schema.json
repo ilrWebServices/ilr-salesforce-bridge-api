@@ -116,10 +116,6 @@
     "person": {
       "type": "object",
       "properties": {
-        "user_id": {
-          "type": "string",
-          "description": "The point of sale's unique id for the person."
-        },
         "contact_sfid": {
           "oneOf": [
             { "$ref": "#/definitions/sales_force_id" },
@@ -140,7 +136,7 @@
           "items": {"$ref": "#/definitions/additional_field" }
         }
       },
-      "required": ["user_id", "contact_sfid", "email", "first_name", "last_name", "company"]
+      "required": ["contact_sfid", "email", "first_name", "last_name", "company"]
     },
     "discount": {
       "type": "object",

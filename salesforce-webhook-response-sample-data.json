@@ -6,10 +6,10 @@
   "sf_contacts": [
     {
       "status": "updated",
-      "pos_user_id": "285714",
       "contact_sfid": "0020P000005G47x",
       "first_name": "Kim",
       "last_name": "Sampler",
+      "email": "ksampler@acme.com",
       "company": "Acme, Inc.",
       "job_title": "Director of Training",
       "phone": "607-255-5555",
@@ -17,10 +17,10 @@
     },
     {
       "status": "updated",
-      "pos_user_id": "571428",
       "contact_sfid": "0250F000002Z32x",
       "first_name": "Ralph",
       "last_name": "Remmington",
+      "email": "rremmington@acme.com",
       "company": "Acme, Inc.",
       "job_title": "HR Analyst",
       "phone": "607-255-4444",
@@ -38,6 +38,7 @@
       "contact_sfid": "0005M000066Q96x",
       "first_name": "Lawanda",
       "last_name": "Jordan",
+      "email": "ljordan@acme.com",
       "company": "Acme, Inc.",
       "job_title": "Director of Talent Development",
       "phone": "607-255-4321",

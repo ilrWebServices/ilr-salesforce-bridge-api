@@ -25,13 +25,10 @@
             "type": "string",
             "enum": [ "updated", "inserted" ],
           },
-          "pos_user_id": {
-            "type": "string",
-            "description": "The point of sale's user id, passed with the original order"
-          },
           "contact_sfid": { "$ref": "#/definitions/sales_force_id" },
           "first_name": { "type": "string" },
           "last_name": { "type": "string" },
+          "email": { "type": "string" },
           "company": { "type": "string"},
           "job_title": { "type": "string"},
           "phone": { "type": "string" },
@@ -46,7 +43,8 @@
               "required": ["class_id", "participant_id"]
             }
           }
-        }
+        },
+        "required": ["status","contact_sfid","email"]
       }
     }
   },

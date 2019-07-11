@@ -12,7 +12,6 @@
     "masked_card_number": "51"
   },
   "customer": {
-      "user_id": "285714",
       "contact_sfid": "0020P000005G47x",
       "email": "ksampler@acme.com",
       "first_name": "Kim",
@@ -47,7 +46,6 @@
         "additional_fields": [],
         "participants": [
           {
-            "user_id": "571428",
             "contact_sfid": "0250F000002Z32x",
             "email": "rremmington@acme.com",
             "first_name": "Ralph",
@@ -67,7 +65,6 @@
             ]
           },
           {
-            "user_id": "714285",
             "contact_sfid": "0005M000066Q96x",
             "email": "ljordan@acme.com",
             "first_name": "Lawanda",
