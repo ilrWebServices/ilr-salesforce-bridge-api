@@ -94,7 +94,7 @@
           "type": "number",
           "description": "Amount charged to card"
         },
-        "tansaction_id": {
+        "transaction_id": {
           "type": "string",
           "description": "FreedomPay's transaction id."
         },
@@ -111,7 +111,7 @@
           "description": "First two digits of card number."
         }
       },
-      "required": ["payment_type", "payment_id", "amount", "tansaction_id"]
+      "required": ["payment_type", "payment_id", "amount", "transaction_id"]
     },
     "person": {
       "type": "object",

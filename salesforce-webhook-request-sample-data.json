@@ -6,7 +6,7 @@
     "payment_id": "38452",
     "name_on_card": "Jane Doe",
     "amount": 3391.50,
-    "tansaction_id": "01Z6HB5DMN00P74LV1TO4PTBAC0SFLDW",
+    "transaction_id": "01Z6HB5DMN00P74LV1TO4PTBAC0SFLDW",
     "authorization_code": "520593",
     "card_type": "MASTERCARD",
     "masked_card_number": "51"
