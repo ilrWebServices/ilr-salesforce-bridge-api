@@ -111,7 +111,7 @@
           "description": "First two digits of card number."
         }
       },
-      "required": ["payment_type", "payment_id", "amount", "transaction_id"]
+      "required": ["payment_type", "payment_id", "amount", "transaction_id", "name_on_card", "authorization_code", "card_type", "masked_card_number"]
     },
     "person": {
       "type": "object",
