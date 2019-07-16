@@ -1,6 +1,24 @@
-# ILR Sf Bridge
-API specification for ILR/Salesforce bridge
+# ILR Salesforce Webhook Schema
 
-Uses OpenAPI 3.0
+This is the JSON schema specification for posting ILR Registration orders to Salesforce.
 
-See [https://swagger.io/docs/specification/about/](https://swagger.io/docs/specification/about/) for a good primer on the OpenAPI specification.
+## Setup
+
+```
+$ nvm use     # If you use nvm. Otherwise, use node.js 8.x.
+$ npm install
+```
+
+## Validation
+
+All validations:
+
+```
+$ npm run validate
+```
+
+Just the request schema:
+
+```
+$ npm run validate-webhook-request
+```
