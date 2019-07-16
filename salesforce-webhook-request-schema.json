@@ -122,7 +122,8 @@
             { "type": "string",
               "maxLength": 0,
               "description": "Use a zero-length string for sfid for new inserts."
-            }
+            },
+            { "type": "null" }
           ]
         },
         "email": { "type": "string" },
