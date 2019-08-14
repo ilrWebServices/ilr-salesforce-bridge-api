@@ -9,10 +9,6 @@
       "type": "string",
       "description": "The point of sale's unique id for the order."
     },
-    "pos_order_id": {
-      "type": "string",
-      "description": "The point of sale's unique id for the order."
-    },
     "sf_order_id": {
       "type": "string",
       "description": "Salesforce's unique id for the order."
