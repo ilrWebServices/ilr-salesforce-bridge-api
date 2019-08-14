@@ -9,12 +9,19 @@
       "type": "string",
       "description": "The point of sale's unique id for the order."
     },
+    "pos_order_id": {
+      "type": "string",
+      "description": "The point of sale's unique id for the order."
+    },
+    "sf_order_id": {
+      "type": "string",
+      "description": "Salesforce's unique id for the order."
+    },
     "sf_product_type": {
       "type": "string",
       "description": "Salesforce product type identifier",
       "example": "Open enrollment program"
     },
-    "sf_application_id": { "$ref": "#/definitions/sales_force_id" },
     "sf_payment_id": { "$ref": "#/definitions/sales_force_id" },
     "sf_contacts": {
       "type": "array",
@@ -38,9 +45,10 @@
               "type": "object",
               "properties": {
                 "class_id": { "$ref": "#/definitions/sales_force_id" },
-                "participant_id": { "$ref": "#/definitions/sales_force_id" }
+                "participant_id": { "$ref": "#/definitions/sales_force_id" },
+                "sf_application_id": { "$ref": "#/definitions/sales_force_id" }
               },
-              "required": ["class_id", "participant_id"]
+              "required": ["class_id", "participant_id", "sf_application_id"]
             }
           }
         },
@@ -48,7 +56,7 @@
       }
     }
   },
-  "required": ["pos_order_id", "sf_product_type", "sf_application_id", "sf_payment_id", "sf_contacts"],
+  "required": ["pos_order_id", "sf_order_id", "sf_product_type", "sf_payment_id", "sf_contacts"],
   "definitions": {
     "sales_force_id": {
       "type": "string",
