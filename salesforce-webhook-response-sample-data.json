@@ -1,7 +1,7 @@
 {
   "pos_order_id": "142857",
   "sf_product_type": "Open Enrollment",
-  "sf_application_id": "a0r0P00000HX7fh",
+  "sf_order_id": "a0r0P00000HX7fh",
   "sf_payment_id": "a370P00000bcH7R",
   "sf_contacts": [
     {
@@ -28,7 +28,7 @@
         {
           "class_id": "a0i0P00000SgpG8",
           "participant_id": "d102S00050GEyPL",
-
+          "sf_application_id": "a0r0P00000JR3pt"
         }
       ]
     },
@@ -46,7 +46,7 @@
         {
           "class_id": "a0i0P00000SgpG8",
           "participant_id": "0070P00350BVGKj",
-
+          "sf_application_id": "a0r0W00920KD7ag"
         }
       ]
     }
