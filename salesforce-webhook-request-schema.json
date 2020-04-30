@@ -136,6 +136,9 @@
         "company": { "type": "string" },
         "job_title": { "type": "string" },
         "phone": { "type": "string" },
+        "dietary_restrictions": { "type": "string" },
+        "accessible_accommodation": { "type": "string" },
+        "is_cornell_employee": { "type": "boolean"},
         "additional_fields" : {
           "type": "array",
           "items": {"$ref": "#/definitions/additional_field" }

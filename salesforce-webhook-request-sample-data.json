@@ -157,7 +157,6 @@
     "discounted_total": 1270.75,
     "registration": {
       "additional_fields": [],
-      "description": "",
       "product_type": "class",
       "course_id": "a0p0P00000C8f27QAB",
       "class_id": "a0i0P00000SgpGmQAJ",
@@ -166,6 +165,8 @@
         "email": "fflintstone@example.com",
         "first_name": "Fred",
         "last_name": "Flintstone",
+        "dietary_restrictions": "No gluten",
+        "is_cornell__employee": true,
         "additional_fields": []
       }]
     }
