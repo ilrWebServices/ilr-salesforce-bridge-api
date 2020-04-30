@@ -1,90 +1,173 @@
 {
-  "point_of_sale": "ILR Professional Programs Open Enrollment",
-  "order_id": "142857",
-  "payment": {
-    "payment_type": "freedompay_cc",
-    "payment_id": "38452",
-    "name_on_card": "Jane Doe",
-    "amount": 3391.50,
-    "transaction_id": "01Z6HB5DMN00P74LV1TO4PTBAC0SFLDW",
-    "authorization_code": "520593",
-    "card_type": "MASTERCARD",
-    "masked_card_number": "51"
-  },
-  "customer": {
-      "contact_sfid": "0020P000005G47x",
-      "email": "ksampler@acme.com",
-      "first_name": "Kim",
-      "last_name": "Sampler",
-      "company": "Acme, Inc.",
-      "job_title": "Director of Training",
-      "phone": "607-255-5555",
-      "additional_fields" : [
-        {
-          "name": "role",
-          "value": "Training facilitator"
-        }
-      ]
-  },
-  "order_total": 3391.50,
-  "items": [
-    {
-      "discount": {
-        "sfid": "a0q0P00000OV8CA",
-        "discount_code": "GOVT/NONPROFIT",
-        "discount_type": "percentage",
-        "amount": "15"
+  "point_of_sale": "freedompay_hpp_registrations",
+  "order_id": "2",
+  "payments": [{
+    "payment_type": "freedompay_hpp",
+    "payment_id": "2",
+    "amount": 3812.25,
+    "transaction_id": "b8e63305-9d03-41fc-8157-6ad2b4894337",
+    "transaction_data": {
+      "ResponseMessage": null,
+      "AuthResponse": {
+        "ResponseMessage": null,
+        "AuthorizationDecision": "ACCEPT",
+        "BillingAddress": null,
+        "DCCInfo": null,
+        "DCCOptIn": false,
+        "FreewayResponse": {
+          "AccountBalance": null,
+          "Amount": "3812.25",
+          "AuthorizationCode": "215362",
+          "AvsResponse": null,
+          "CvvResponse": null,
+          "Decision": "ACCEPT",
+          "FreewayRequestId": "01Z6HDS99F01U667D1V5QETMB8H5ELIB",
+          "TokenInfo": null
+        },
+        "WasAuthorized": true,
+        "WasCaptured": true
       },
-      "price": 1995,
-      "discounted_price": 1695.75,
-      "total": 3391.50,
-      "registration": {
-        "description": "For example, a single course with 1+ participants.",
-        "product_type": "Open Enrollment",
-        "course_id": "a0p0P00000C8f3I",
-        "class_id": "a0i0P00000SgpG8",
-        "additional_fields": [],
-        "participants": [
-          {
-            "contact_sfid": "0250F000002Z32x",
-            "email": "rremmington@acme.com",
-            "first_name": "Ralph",
-            "last_name": "Remmington",
-            "company": "Acme, Inc.",
-            "job_title": "HR Analyst",
-            "phone": "607-255-4444",
-            "additional_fields" : [
-              {
-                "name": "dietary_restrictions",
-                "value": "No glutan"
-              },
-              {
-                "name": "ada_accomodation",
-                "value": "none"
-              }
-            ]
-          },
-          {
-            "contact_sfid": "0005M000066Q96x",
-            "email": "ljordan@acme.com",
-            "first_name": "Lawanda",
-            "last_name": "Jordan",
-            "company": "Acme, Inc.",
-            "job_title": "Director of Talent Development",
-            "phone": "607-255-4321",
-            "additional_fields" : [
-              {
-                "name": "dietary_restrictions",
-                "value": "none"
-              },
-              {
-                "name": "ada_accomodation",
-                "value": "none"
-              }
-            ]
-          }
-        ]
-      }
+      "CaptureResponse": {
+        "ResponseMessage": null,
+        "AuthorizationDecision": "ACCEPT",
+        "BillingAddress": null,
+        "DCCInfo": null,
+        "DCCOptIn": false,
+        "FreewayResponse": {
+          "AccountBalance": null,
+          "Amount": "3812.25",
+          "AuthorizationCode": "215362",
+          "AvsResponse": null,
+          "CvvResponse": null,
+          "Decision": "ACCEPT",
+          "FreewayRequestId": "01Z6HDS99F01U667D1V5QETMB8H5ELIB",
+          "TokenInfo": null
+        },
+        "WasAuthorized": true,
+        "WasCaptured": true
+      },
+      "CardIssuer": "VISA",
+      "CreditApplicationInformation": null,
+      "DealerCustomerNumber": null,
+      "DynExpMonth": 7,
+      "DynExpYear": 2022,
+      "FailedResponses": [],
+      "FreewayResponseCode": "100",
+      "InvoiceNumber": null,
+      "LastPromoCode": "",
+      "LastPromoDescription": "",
+      "MaskedCardNumber": "411111xxxxxx1111",
+      "MerchantReferenceCode": "2",
+      "NameOnCard": "Barney Rubble",
+      "OriginalRequest": {
+        "AddressRequired": false,
+        "AllowInternationalAddresses": false,
+        "BillingAddress": null,
+        "CSSID": null,
+        "CaptureMode": true,
+        "ClientAuthenticationKey": null,
+        "CurrencyCode": "USD",
+        "CustomerCode": null,
+        "CustomerPODate": null,
+        "CustomerPONumber": null,
+        "DCCenabled": false,
+        "DealerCustomerNumber": null,
+        "DynExp": null,
+        "DynExpMonth": 7,
+        "DynExpYear": 2022,
+        "InvoiceItems": [],
+        "InvoiceNumber": null,
+        "MerchantReferenceCode": "2",
+        "PurchaseItems": [],
+        "RequestToken": false,
+        "ShowAddress": false,
+        "StoreId": "1427226011",
+        "TerminalId": "2428781015",
+        "TimeoutMinutes": null,
+        "TokenType": null,
+        "TokenValue": null,
+        "TransactionTotal": 3812.25,
+        "Validations": false
+      },
+      "ProcessorResponseCode": "100: APPROVED",
+      "StoreName": "ILR Alumni Event Registration",
+      "ThreeDSecureActionCode": null,
+      "TokenInformation": null
     }
-  ]
+  }],
+  "customer": {
+    "contact_sfid": null,
+    "email": "admin@example.com",
+    "billing_email": "jeff.amaral@cornell.edu",
+    "first_name": "Jeff",
+    "last_name": "Amaral",
+    "company": "Bungee Man Enterprises",
+    "job_title": "Web Dude",
+    "phone": "5551212",
+    "additional_fields": []
+  },
+  "order_total": 3812.25,
+  "order_items": [{
+    "name": "Negotiating with Difficult People",
+    "discounts": [{
+      "sfid": "a0q0P00000OV8CAQA1",
+      "code": "GOV\u0027T\/NONPROFIT",
+      "type": "percentage",
+      "amount": -448.5,
+      "percentage": 0.15
+    }],
+    "price": 1495,
+    "discounted_price": 1270.75,
+    "quantity": 2,
+    "total": 2990,
+    "discounted_total": 2541.5,
+    "registration": {
+      "additional_fields": [],
+      "description": "",
+      "product_type": "class",
+      "course_id": "a0p0P00000C8f4wQAB",
+      "class_id": "a0i0P00000SgpHVQAZ",
+      "participants": [{
+        "contact_sfid": null,
+        "email": "admin@example.com",
+        "first_name": "Clunk",
+        "last_name": "Supply",
+        "additional_fields": []
+      }, {
+        "contact_sfid": null,
+        "email": "pebbles@flintstone.rock",
+        "first_name": "Pebbles",
+        "last_name": "Flintstone",
+        "additional_fields": []
+      }]
+    }
+  }, {
+    "name": "Labor Relations Law",
+    "discounts": [{
+      "sfid": "a0q0P00000OV8CAQA1",
+      "code": "GOV\u0027T\/NONPROFIT",
+      "type": "percentage",
+      "amount": -224.25,
+      "percentage": 0.15
+    }],
+    "price": 1495,
+    "discounted_price": 1270.75,
+    "quantity": 1,
+    "total": 1495,
+    "discounted_total": 1270.75,
+    "registration": {
+      "additional_fields": [],
+      "description": "",
+      "product_type": "class",
+      "course_id": "a0p0P00000C8f27QAB",
+      "class_id": "a0i0P00000SgpGmQAJ",
+      "participants": [{
+        "contact_sfid": null,
+        "email": "fflintstone@example.com",
+        "first_name": "Fred",
+        "last_name": "Flintstone",
+        "additional_fields": []
+      }]
+    }
+  }]
 }

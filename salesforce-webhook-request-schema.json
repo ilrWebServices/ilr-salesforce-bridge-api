@@ -8,16 +8,15 @@
     "point_of_sale": {
       "type": "string",
       "description": "The storefront from which order was sent.",
-      "example": "ILR Professional Programs Open Enrollment"
+      "example": "freedompay_hpp_registrations"
     },
     "order_id": {
       "type": "string",
       "description": "The point of sale's unique id for the order."
     },
-    "payment": {
-      "oneOf": [
-        { "$ref": "#/definitions/freedompay_payment" }
-      ]
+    "payments": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/payment" }
     },
     "customer": { "$ref": "#/definitions/person" },
     "order_total": {
@@ -29,7 +28,14 @@
       "items": {
         "type": "object",
         "properties": {
-          "discount": { "$ref": "#/definitions/discount" },
+          "name": {
+            "type": "string",
+            "description": "The name if the order item (e.g. class title)."
+          },
+          "discounts": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/discount" }
+          },
           "price": {
             "type": "number",
             "description": "The advertised price of the product."
@@ -38,9 +44,17 @@
             "type": "number",
             "description": "The price with doscount applied."
           },
+          "quantity": {
+            "type": "number",
+            "description": "Number of these items in the order."
+          },
           "total": {
             "type": "number",
             "description": "Discounted price X number of participants."
+          },
+          "discounted_total": {
+            "type": "number",
+            "description": "Discounted total of all items in the order."
           },
           "registration": {
             "type": "object",
@@ -65,17 +79,18 @@
             "required": ["product_type", "course_id", "class_id", "participants"]
           }
         },
-        "required": ["price", "discounted_price", "total", "registration"]
+        "required": ["name", "price", "discounted_price", "quantity", "total", "discounted_total", "registration"]
       }
     }
   },
+  "required": ["point_of_sale", "order_id", "payments", "customer", "order_total", "order_items"],
   "definitions": {
     "sales_force_id": {
       "type": "string",
       "pattern": "^\\w{18}|\\w{15}$",
       "example": "0050P000007S45x"
     },
-    "freedompay_payment": {
+    "payment": {
       "type": "object",
       "properties": {
         "payment_type": {
@@ -86,10 +101,6 @@
           "type": "string",
           "description": "The point of sale's unique id for the payment."
         },
-        "name_on_card": {
-          "type": "string",
-          "description": "Name of card holder"
-        },
         "amount": {
           "type": "number",
           "description": "Amount charged to card"
@@ -98,20 +109,12 @@
           "type": "string",
           "description": "FreedomPay's transaction id."
         },
-        "authorization_code": {
-          "type": "string",
-          "description": "AUTH code from card processor."
-        },
-        "card_type": {
-          "type": "string",
-          "description": "Credit card type."
-        },
-        "masked_card_number": {
-          "type": "string",
-          "description": "First two digits of card number."
+        "transaction_data": {
+          "type": "object",
+          "description": "Full data dump from card processor or other dynamic payment data."
         }
       },
-      "required": ["payment_type", "payment_id", "amount", "transaction_id", "name_on_card", "authorization_code", "card_type", "masked_card_number"]
+      "required": ["payment_type", "payment_id", "amount", "transaction_id"]
     },
     "person": {
       "type": "object",
@@ -127,6 +130,7 @@
           ]
         },
         "email": { "type": "string" },
+        "billing_email": { "type": "string" },
         "first_name": { "type": "string" },
         "last_name": { "type": "string" },
         "company": { "type": "string" },
@@ -137,23 +141,36 @@
           "items": {"$ref": "#/definitions/additional_field" }
         }
       },
-      "required": ["contact_sfid", "email", "first_name", "last_name", "company"]
+      "required": ["contact_sfid", "email", "first_name", "last_name"]
     },
     "discount": {
       "type": "object",
       "properties": {
         "sfid": { "$ref": "#/definitions/sales_force_id" },
-        "discount_code": {
+        "code": {
           "type": "string",
           "description": "The code as entered by end user."
         },
-        "discount_type": {
+        "type": {
           "type": "string",
-          "enum": [ "flat_rate", "percentage" ]
+          "enum": [ "fixed_amount", "percentage" ]
         },
-        "amount": { "type": "number" }
+        "amount": {
+          "type": "number"
+        },
+        "percentage": {
+          "type": "number"
+        }
       },
-      "required": ["sfid", "discount_code", "discount_type", "amount"]
+      "if": {
+        "properties": { "type": { "const": "percentage" } }
+      },
+      "then": {
+        "required": ["sfid", "code", "type", "amount", "percentage"]
+      },
+      "else": {
+        "required": ["sfid", "code", "type", "amount"]
+      }
     },
     "additional_field": {
       "type": "object",

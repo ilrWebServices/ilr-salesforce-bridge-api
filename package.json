@@ -1,0 +1,23 @@
+{
+  "name": "ilr-salesforce-bridge-api",
+  "version": "1.0.0",
+  "description": "API specification for ILR/Salesforce bridge",
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ilrWebServices/ilr-salesforce-bridge-api/issues"
+  },
+  "homepage": "https://github.com/ilrWebServices/ilr-salesforce-bridge-api#readme",
+  "main": "index.js",
+  "scripts": {
+    "validate-webhook-request": "ajv validate -s salesforce-webhook-request-schema.json -d salesforce-webhook-request-sample-data.json",
+    "validate": "npm run validate-webhook-request"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilrWebServices/ilr-salesforce-bridge-api.git"
+  },
+  "dependencies": {
+    "ajv-cli": "^3.0.0"
+  }
+}
