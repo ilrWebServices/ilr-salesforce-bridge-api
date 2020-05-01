@@ -42,7 +42,7 @@
           },
           "discounted_price": {
             "type": "number",
-            "description": "The price with doscount applied."
+            "description": "The price with discount applied."
           },
           "quantity": {
             "type": "number",
