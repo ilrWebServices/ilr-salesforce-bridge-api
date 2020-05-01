@@ -26,7 +26,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": [ "updated", "inserted" ],
+            "enum": [ "updated", "inserted" ]
           },
           "contact_sfid": { "$ref": "#/definitions/sales_force_id" },
           "first_name": { "type": "string" },

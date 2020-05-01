@@ -11,13 +11,15 @@
   "main": "index.js",
   "scripts": {
     "validate-webhook-request": "ajv validate -s salesforce-webhook-request-schema.json -d salesforce-webhook-request-sample-data.json",
-    "validate": "npm run validate-webhook-request"
+    "validate-webhook-response": "ajv validate -s salesforce-webhook-response-schema.json -d salesforce-webhook-response-sample-data.json",
+    "validate": "run-s validate-webhook-request validate-webhook-response"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ilrWebServices/ilr-salesforce-bridge-api.git"
   },
   "dependencies": {
-    "ajv-cli": "^3.0.0"
+    "ajv-cli": "^3.0.0",
+    "npm-run-all": "^4.1.5"
   }
 }
