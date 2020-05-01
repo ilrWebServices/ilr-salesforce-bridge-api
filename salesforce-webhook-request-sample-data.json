@@ -166,7 +166,7 @@
         "first_name": "Fred",
         "last_name": "Flintstone",
         "dietary_restrictions": "No gluten",
-        "accessible_accommodation": "Appreciate closed-captioning on videos"
+        "accessible_accommodation": "Appreciate closed-captioning on videos",
         "is_cornell__employee": true,
         "additional_fields": []
       }]
