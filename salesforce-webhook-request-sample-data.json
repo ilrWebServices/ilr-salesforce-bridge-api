@@ -121,10 +121,9 @@
     "quantity": 2,
     "total": 2990,
     "discounted_total": 2541.5,
-    "registration": {
+    "product": {
       "additional_fields": [],
-      "description": "",
-      "product_type": "class",
+      "product_type": "registration",
       "course_id": "a0p0P00000C8f4wQAB",
       "class_id": "a0i0P00000SgpHVQAZ",
       "participants": [{
@@ -132,6 +131,7 @@
         "email": "admin@example.com",
         "first_name": "Clunk",
         "last_name": "Supply",
+        "apply_to_certificate": "a0n0P00000DW1pM",
         "additional_fields": []
       }, {
         "contact_sfid": null,
@@ -155,9 +155,9 @@
     "quantity": 1,
     "total": 1495,
     "discounted_total": 1270.75,
-    "registration": {
+    "product": {
       "additional_fields": [],
-      "product_type": "class",
+      "product_type": "registration",
       "course_id": "a0p0P00000C8f27QAB",
       "class_id": "a0i0P00000SgpGmQAJ",
       "participants": [{
@@ -166,7 +166,34 @@
         "first_name": "Fred",
         "last_name": "Flintstone",
         "dietary_restrictions": "No gluten",
+        "accessible_accommodation": "Appreciate closed-captioning on videos"
         "is_cornell__employee": true,
+        "additional_fields": []
+      }]
+    }
+  },
+  {
+    "name": "Certificate Enrollment: Labor Relations - Advanced Collective Bargaining Studies Certificate",
+    "discounts": [{
+      "sfid": "a0q0P00000OV8CAQA1",
+      "code": "GOV\u0027T\/NONPROFIT",
+      "type": "percentage",
+      "amount": -224.25,
+      "percentage": 0.15
+    }],
+    "price": 0,
+    "discounted_price": 0,
+    "quantity": 1,
+    "total": 0,
+    "discounted_total": 0,
+    "product": {
+      "product_type": "certificate_enrollment",
+      "certificate_id": "a0n0P00000DW1pM",
+      "participants": [{
+        "contact_sfid": null,
+        "email": "pebbles@flintstone.rock",
+        "first_name": "Pebbles",
+        "last_name": "Flintstone",
         "additional_fields": []
       }]
     }
