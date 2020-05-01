@@ -56,30 +56,9 @@
             "type": "number",
             "description": "Discounted total of all items in the order."
           },
-          "registration": {
-            "type": "object",
-            "description": "For example, a single course with 1+ participants.",
-            "properties": {
-              "product_type": {
-                "type": "string",
-                "description": "Salesforce product type identifier",
-                "example": "Open enrollment program"
-              },
-              "course_id": { "$ref": "#/definitions/sales_force_id" },
-              "class_id": { "$ref": "#/definitions/sales_force_id" },
-              "additional_fields" : {
-                "type": "array",
-                "items": {"$ref": "#/definitions/additional_field" }
-              },
-              "participants": {
-                "type": "array",
-                "items": { "$ref": "#/definitions/person" }
-              }
-            },
-            "required": ["product_type", "course_id", "class_id", "participants"]
-          }
+          "product":  { "$ref": "#/definitions/product" }
         },
-        "required": ["name", "price", "discounted_price", "quantity", "total", "discounted_total", "registration"]
+        "required": ["name", "price", "discounted_price", "quantity", "total", "discounted_total", "product"]
       }
     }
   },
@@ -116,6 +95,58 @@
       },
       "required": ["payment_type", "payment_id", "amount", "transaction_id"]
     },
+    "product": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "product_type": {
+              "type": "string",
+              "enum": [ "registration", "certificate_enrollment" ]
+            },
+            "additional_fields" : {
+              "type": "array",
+              "items": {"$ref": "#/definitions/additional_field" }
+            }
+          }
+        },
+        {
+          "oneOf": [
+            { "$ref": "#/definitions/registration" },
+            { "$ref": "#/definitions/certificate_enrollment" }
+          ],
+          "discriminator": {
+            "propertyName": "product_type"
+          }
+        }
+      ],
+      "required": ["product_type"]
+    },
+    "registration": {
+      "type": "object",
+      "description": "Product - a single course with 1+ participants.",
+      "properties": {
+        "course_id": { "$ref": "#/definitions/sales_force_id" },
+        "class_id": { "$ref": "#/definitions/sales_force_id" },
+        "participants": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/participant" }
+        }
+      },
+      "required": ["product_type", "course_id", "class_id", "participants"]
+    },
+    "certificate_enrollment": {
+      "type": "object",
+      "description": "Product - A request to enroll in a certificate.",
+      "properties": {
+        "certificate_id": { "$ref": "#/definitions/sales_force_id" },
+        "participants": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/participant" }
+        }
+      },
+      "required": ["certificate_id", "participants"]
+    },
     "person": {
       "type": "object",
       "properties": {
@@ -145,6 +176,17 @@
         }
       },
       "required": ["contact_sfid", "email", "first_name", "last_name"]
+    },
+    "participant": {
+      "allOf": [
+        { "$ref": "#/definitions/person" },
+        {
+          "type": "object",
+          "properties": {
+            "apply_to_certificate": { "$ref": "#/definitions/sales_force_id" }
+          }
+        }
+      ]
     },
     "discount": {
       "type": "object",
