@@ -19,6 +19,10 @@
       "items": { "$ref": "#/definitions/payment" }
     },
     "customer": { "$ref": "#/definitions/person" },
+    "payment_owner": {
+      "type": "string",
+      "enum": [ "customer", "company" ]
+    },
     "order_total": {
       "type": "number",
       "description": "Order total, adjusted after all prices discounted."
