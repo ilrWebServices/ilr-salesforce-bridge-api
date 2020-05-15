@@ -18,7 +18,12 @@
       "type": "array",
       "items": { "$ref": "#/definitions/payment" }
     },
-    "customer": { "$ref": "#/definitions/person" },
+    "customer": {
+      "allOf": [
+        { "$ref": "#/definitions/person" },
+        { "$ref": "#/definitions/postal_address" }
+      ]
+    },
     "payment_owner": {
       "type": "string",
       "enum": [ "customer", "company" ]
@@ -181,6 +186,7 @@
     "participant": {
       "allOf": [
         { "$ref": "#/definitions/person" },
+        { "$ref": "#/definitions/postal_address" },
         {
           "type": "object",
           "properties": {
@@ -191,6 +197,16 @@
           }
         }
       ]
+    },
+    "postal_address": {
+      "type": "object",
+      "properties": {
+        "street_address": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "postal_code": { "type": "string" },
+        "country": { "type": "string" }
+      }
     },
     "discount": {
       "type": "object",
