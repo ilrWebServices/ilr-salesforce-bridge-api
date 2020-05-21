@@ -13,11 +13,6 @@
       "type": "string",
       "description": "Salesforce's unique id for the order."
     },
-    "sf_product_type": {
-      "type": "string",
-      "description": "Salesforce product type identifier",
-      "example": "Open enrollment program"
-    },
     "sf_payment_id": { "$ref": "#/definitions/sales_force_id" },
     "sf_contacts": {
       "type": "array",
@@ -42,9 +37,27 @@
               "properties": {
                 "class_id": { "$ref": "#/definitions/sales_force_id" },
                 "participant_id": { "$ref": "#/definitions/sales_force_id" },
-                "sf_application_id": { "$ref": "#/definitions/sales_force_id" }
+                "sf_application_id": { "$ref": "#/definitions/sales_force_id" },
+                "sf_certificate_id": {
+                  "description": "id of certificate toward which participant wants to apply this course",
+                  "$ref": "#/definitions/sales_force_id"
+                }
               },
               "required": ["class_id", "participant_id", "sf_application_id"]
+            }
+          },
+          "certificate_enrollment_requests_recorded_for": {
+            "description": "Include here only certificate enrollments not already requested as part of individual class registrations",
+            "type": "array",
+            "itmes": {
+              "type": "object",
+              "properties": {
+                "sf_certificate_id": {
+                  "description": "id of certificate toward which participant wants to apply this course",
+                  "$ref": "#/definitions/sales_force_id"
+                },
+                "required": ["sf_certificate_id"]
+              }
             }
           }
         },
@@ -52,7 +65,7 @@
       }
     }
   },
-  "required": ["pos_order_id", "sf_order_id", "sf_product_type", "sf_payment_id", "sf_contacts"],
+  "required": ["pos_order_id", "sf_order_id", "sf_payment_id", "sf_contacts"],
   "definitions": {
     "sales_force_id": {
       "type": "string",
