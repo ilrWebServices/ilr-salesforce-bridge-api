@@ -167,8 +167,11 @@
         "email": { "type": "string" },
         "billing_email": { "type": "string" },
         "first_name": { "type": "string" },
+        "middle_name": { "type": "string" },
         "last_name": { "type": "string" },
+        "suffix": { "type": "string" },
         "company": { "type": "string" },
+        "industry": { "type": "string" },
         "job_title": { "type": "string" },
         "phone": { "type": "string" },
         "additional_fields" : {
