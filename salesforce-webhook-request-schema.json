@@ -18,12 +18,7 @@
       "type": "array",
       "items": { "$ref": "#/definitions/payment" }
     },
-    "customer": {
-      "allOf": [
-        { "$ref": "#/definitions/person" },
-        { "$ref": "#/definitions/postal_address" }
-      ]
-    },
+    "customer": { "$ref": "#/definitions/customer" },
     "payment_owner": {
       "type": "string",
       "enum": [ "customer", "company" ]
@@ -183,6 +178,19 @@
       },
       "required": ["contact_sfid", "email", "first_name", "last_name"]
     },
+    "customer": {
+      "allOf": [
+        { "$ref": "#/definitions/person" },
+        { "$ref": "#/definitions/postal_address" },
+        {
+          "type": "object",
+          "properties": {
+            "customer_id": { "type": "integer" }
+          }
+        }
+      ],
+      "required": ["customer_id"]
+    },
     "participant": {
       "allOf": [
         { "$ref": "#/definitions/person" },
@@ -190,13 +198,15 @@
         {
           "type": "object",
           "properties": {
+            "participant_id": { "type": "integer" },
             "dietary_restrictions": { "type": "string" },
             "accessible_accommodation": { "type": "string" },
             "is_cornell_employee": { "type": "boolean"},
             "apply_to_certificate": { "$ref": "#/definitions/sales_force_id" }
           }
         }
-      ]
+      ],
+      "required": ["participant_id"]
     },
     "postal_address": {
       "type": "object",

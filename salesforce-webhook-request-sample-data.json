@@ -96,6 +96,7 @@
     }
   }],
   "customer": {
+    "customer_id": 2,
     "contact_sfid": null,
     "email": "admin@example.com",
     "billing_email": "jeff.amaral@cornell.edu",
@@ -127,6 +128,7 @@
       "course_id": "a0p0P00000C8f4wQAB",
       "class_id": "a0i0P00000SgpHVQAZ",
       "participants": [{
+        "participant_id": 3,
         "contact_sfid": null,
         "email": "admin@example.com",
         "first_name": "Clunk",
@@ -134,6 +136,7 @@
         "apply_to_certificate": "a0n0P00000DW1pM",
         "additional_fields": []
       }, {
+        "participant_id": 4,
         "contact_sfid": null,
         "email": "pebbles@flintstone.rock",
         "first_name": "Pebbles",
@@ -161,6 +164,7 @@
       "course_id": "a0p0P00000C8f27QAB",
       "class_id": "a0i0P00000SgpGmQAJ",
       "participants": [{
+        "participant_id": 5,
         "contact_sfid": null,
         "email": "fflintstone@example.com",
         "first_name": "Fred",
@@ -195,6 +199,7 @@
       "product_type": "certificate_enrollment",
       "certificate_id": "a0n0P00000DW1pM",
       "participants": [{
+        "participant_id": 6,
         "contact_sfid": null,
         "email": "pebbles@flintstone.rock",
         "first_name": "Pebbles",
