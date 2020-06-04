@@ -6,66 +6,45 @@
   "type": "object",
   "properties": {
     "pos_order_id": {
-      "type": "string",
+      "type": "integer",
       "description": "The point of sale's unique id for the order."
     },
     "sf_order_id": {
-      "type": "string",
+      "$ref": "#/definitions/sales_force_id",
       "description": "Salesforce's unique id for the order."
     },
-    "sf_payment_id": { "$ref": "#/definitions/sales_force_id" },
-    "sf_contacts": {
+    "payments": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "status": {
-            "type": "string",
-            "enum": [ "updated", "inserted" ]
-          },
-          "contact_sfid": { "$ref": "#/definitions/sales_force_id" },
-          "first_name": { "type": "string" },
-          "last_name": { "type": "string" },
-          "email": { "type": "string" },
-          "company": { "type": "string"},
-          "job_title": { "type": "string"},
-          "phone": { "type": "string" },
-          "participant_in": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "class_id": { "$ref": "#/definitions/sales_force_id" },
-                "participant_id": { "$ref": "#/definitions/sales_force_id" },
-                "sf_application_id": { "$ref": "#/definitions/sales_force_id" },
-                "sf_certificate_id": {
-                  "description": "id of certificate toward which participant wants to apply this course",
-                  "$ref": "#/definitions/sales_force_id"
-                }
-              },
-              "required": ["class_id", "participant_id", "sf_application_id"]
-            }
-          },
-          "certificate_enrollment_requests_recorded_for": {
-            "description": "Include here only certificate enrollments not already requested as part of individual class registrations",
-            "type": "array",
-            "itmes": {
-              "type": "object",
-              "properties": {
-                "sf_certificate_id": {
-                  "description": "id of certificate toward which participant wants to apply this course",
-                  "$ref": "#/definitions/sales_force_id"
-                },
-                "required": ["sf_certificate_id"]
-              }
-            }
-          }
+          "pos_payment_id": { "type": "integer" },
+          "sf_payment_id": { "$ref": "#/definitions/sales_force_id" }
         },
-        "required": ["status","contact_sfid","email"]
+        "required": ["pos_payment_id", "sf_payment_id"]
+      }
+    },
+    "customer": {
+      "type": "object",
+      "properties": {
+        "pos_customer_id": { "type": "integer" },
+        "sf_customer_contact_id": { "$ref": "#/definitions/sales_force_id" }
+      },
+      "required": ["pos_customer_id", "sf_customer_contact_id"]
+    },
+    "participants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pos_participant_id": { "type": "integer" },
+          "sf_participant_contact_id": { "$ref": "#/definitions/sales_force_id" }
+        },
+        "required": ["pos_participant_id", "sf_participant_contact_id"]
       }
     }
   },
-  "required": ["pos_order_id", "sf_order_id", "sf_payment_id", "sf_contacts"],
+  "required": ["pos_order_id", "sf_order_id", "payments", "customer", "participants"],
   "definitions": {
     "sales_force_id": {
       "type": "string",
