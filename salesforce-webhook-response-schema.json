@@ -38,9 +38,9 @@
         "type": "object",
         "properties": {
           "pos_participant_id": { "type": "integer" },
-          "sf_participant_contact_id": { "$ref": "#/definitions/sales_force_id" }
+          "sf_participant_id": { "$ref": "#/definitions/sales_force_id" }
         },
-        "required": ["pos_participant_id", "sf_participant_contact_id"]
+        "required": ["pos_participant_id", "sf_participant_id"]
       }
     }
   },
