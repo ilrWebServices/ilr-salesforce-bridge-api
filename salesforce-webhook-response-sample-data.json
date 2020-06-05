@@ -14,11 +14,13 @@
   "participants": [
     {
       "pos_participant_id": 17,
-      "sf_participant_id": "a103J0000007i6OQAQ",
+      "sf_participant_contact_id": "0020P000005G47x",
+      "sf_participant_id": "a103J0000007i6OQAQ"
     },
     {
       "pos_participant_id": 18,
-      "sf_participant_id": "a100P00000MAW58QAH",
+      "sf_participant_contact_id": "0480R000007L33n",
+      "sf_participant_id": "a100P00000MAW58QAH"
     }
   ]
 }
