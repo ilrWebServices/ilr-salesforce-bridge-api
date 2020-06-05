@@ -98,8 +98,7 @@
   "customer": {
     "customer_id": 2,
     "contact_sfid": null,
-    "email": "admin@example.com",
-    "billing_email": "jeff.amaral@cornell.edu",
+    "email": "jeff.amaral@cornell.edu",
     "first_name": "Jeff",
     "last_name": "Amaral",
     "company": "Bungee Man Enterprises",
