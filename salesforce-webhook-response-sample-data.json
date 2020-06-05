@@ -1,54 +1,24 @@
 {
-  "pos_order_id": "142857",
-  "sf_product_type": "Open Enrollment",
+  "pos_order_id": 20,
   "sf_order_id": "a0r0P00000HX7fh",
-  "sf_payment_id": "a370P00000bcH7R",
-  "sf_contacts": [
+  "payments": [
     {
-      "status": "updated",
-      "contact_sfid": "0020P000005G47x",
-      "first_name": "Kim",
-      "last_name": "Sampler",
-      "email": "ksampler@acme.com",
-      "company": "Acme, Inc.",
-      "job_title": "Director of Training",
-      "phone": "607-255-5555",
-      "participant_in": []
+      "pos_payment_id": 9,
+      "sf_payment_id": "a370P00000bcH7R"
+    }
+  ],
+  "customer": {
+    "pos_customer_id": 3,
+    "sf_customer_contact_id": "0020P000005G47x"
+  },
+  "participants": [
+    {
+      "pos_participant_id": 17,
+      "sf_participant_id": "a103J0000007i6OQAQ",
     },
     {
-      "status": "updated",
-      "contact_sfid": "0250F000002Z32x",
-      "first_name": "Ralph",
-      "last_name": "Remmington",
-      "email": "rremmington@acme.com",
-      "company": "Acme, Inc.",
-      "job_title": "HR Analyst",
-      "phone": "607-255-4444",
-      "participant_in": [
-        {
-          "class_id": "a0i0P00000SgpG8",
-          "participant_id": "d102S00050GEyPL",
-          "sf_application_id": "a0r0P00000JR3pt"
-        }
-      ]
-    },
-    {
-      "status": "updated",
-      "pos_user_id": "714285",
-      "contact_sfid": "0005M000066Q96x",
-      "first_name": "Lawanda",
-      "last_name": "Jordan",
-      "email": "ljordan@acme.com",
-      "company": "Acme, Inc.",
-      "job_title": "Director of Talent Development",
-      "phone": "607-255-4321",
-      "participant_in": [
-        {
-          "class_id": "a0i0P00000SgpG8",
-          "participant_id": "0070P00350BVGKj",
-          "sf_application_id": "a0r0W00920KD7ag"
-        }
-      ]
+      "pos_participant_id": 18,
+      "sf_participant_id": "a100P00000MAW58QAH",
     }
   ]
 }
