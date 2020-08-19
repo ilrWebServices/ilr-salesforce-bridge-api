@@ -1,26 +1,3 @@
 {
-  "pos_order_id": 20,
-  "sf_order_id": "a0r0P00000HX7fh",
-  "payments": [
-    {
-      "pos_payment_id": 9,
-      "sf_payment_id": "a370P00000bcH7R"
-    }
-  ],
-  "customer": {
-    "pos_customer_id": 3,
-    "sf_customer_contact_id": "0020P000005G47x"
-  },
-  "participants": [
-    {
-      "pos_participant_id": 17,
-      "sf_participant_contact_id": "0020P000005G47x",
-      "sf_participant_id": "a103J0000007i6OQAQ"
-    },
-    {
-      "pos_participant_id": 18,
-      "sf_participant_contact_id": "0480R000007L33n",
-      "sf_participant_id": "a100P00000MAW58QAH"
-    }
-  ]
+  "sf_order_id": "a0r0P00000HX7fh"
 }
