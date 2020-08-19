@@ -5,47 +5,12 @@
   "description": "Data returned by Salesforce after a successful order.",
   "type": "object",
   "properties": {
-    "pos_order_id": {
-      "type": "integer",
-      "description": "The point of sale's unique id for the order."
-    },
     "sf_order_id": {
       "$ref": "#/definitions/sales_force_id",
       "description": "Salesforce's unique id for the order."
-    },
-    "payments": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "pos_payment_id": { "type": "integer" },
-          "sf_payment_id": { "$ref": "#/definitions/sales_force_id" }
-        },
-        "required": ["pos_payment_id", "sf_payment_id"]
-      }
-    },
-    "customer": {
-      "type": "object",
-      "properties": {
-        "pos_customer_id": { "type": "integer" },
-        "sf_customer_contact_id": { "$ref": "#/definitions/sales_force_id" }
-      },
-      "required": ["pos_customer_id", "sf_customer_contact_id"]
-    },
-    "participants": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "pos_participant_id": { "type": "integer" },
-          "sf_participant_contact_id": { "$ref": "#/definitions/sales_force_id" },
-          "sf_participant_id": { "$ref": "#/definitions/sales_force_id" }
-        },
-        "required": ["pos_participant_id", "sf_participant_contact_id", "sf_participant_id"]
-      }
     }
   },
-  "required": ["pos_order_id", "sf_order_id", "payments", "customer", "participants"],
+  "required": ["sf_order_id"],
   "definitions": {
     "sales_force_id": {
       "type": "string",
