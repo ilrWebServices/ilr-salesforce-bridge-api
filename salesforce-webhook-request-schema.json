@@ -14,6 +14,10 @@
       "type": "string",
       "description": "The point of sale's unique id for the order."
     },
+    "response_webhook_url": {
+      "type": "string",
+      "description": "The URL for Salesforce to POST back the new order object id to."
+    },
     "payments": {
       "type": "array",
       "items": { "$ref": "#/definitions/payment" }
@@ -22,6 +26,10 @@
     "payment_owner": {
       "type": "string",
       "enum": [ "customer", "company" ]
+    },
+    "payment_owner": {
+      "type": "string",
+      "description": "The owner of the payment (e.g. self, company, etc.)."
     },
     "order_total": {
       "type": "number",
@@ -66,7 +74,7 @@
       }
     }
   },
-  "required": ["point_of_sale", "order_id", "payments", "customer", "order_total", "order_items"],
+  "required": ["point_of_sale", "response_webhook_url", "payment_owner", "order_id", "payments", "customer", "order_total", "order_items"],
   "definitions": {
     "sales_force_id": {
       "type": "string",
