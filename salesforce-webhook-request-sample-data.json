@@ -1,5 +1,5 @@
 {
-  "point_of_sale": "freedompay_hpp_registrations",
+  "point_of_sale": "ILR Registrations : develop-sr3snxi-f65bssre3cvb6.us-2.platformsh.site",
   "order_id": "2",
   "payments": [{
     "payment_type": "freedompay_hpp",
